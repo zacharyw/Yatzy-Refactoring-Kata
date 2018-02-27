@@ -1,4 +1,38 @@
-﻿# Yatzy Refactoring Kata
+﻿# Background
+Imagine you are an engineer tasked with extending 
+the behavior of the existing Yatzy game to occomodate 
+users who might lose or forget all 5 required dice.
+
+Playing the feature story defined below, given the existing
+code and documentation contained in this repo, please
+pick a language you are most comfortable with and implement
+and refactoring/rework needed to deliver on the feature story.
+
+Please open a PR when you're at a good stopping point, not taking more 
+than 2hrs to work on this. 
+Pretend it's 3pm on a friday. You plan on going home at 5. Do not 
+work on the weekend or work overtime, that's not a good work life balance :)
+
+
+# Feature Story
+
+As a Yatzy player I sometimes lose / forget to bring all of my dice. I would like to be able
+to play Yatzy even if I only have 4 dice.
+
+__Given__: 4 or 5 dice and a desire to play Yatzy
+__When__: Playing and calculating scoring
+__Then__: I should be able to play a game
+  and have the scores calculated properly
+  for the number of dice i'm using
+
+__Given__: a dice count <4 or >5 
+  and a desire to play Yatzy
+__When__: Playing and calculating scoring
+__Then__: I should NOT be able to play a game
+  and have the scores calculated properly
+
+
+# Yatzy Refactoring Kata
 
 This Refactoring Kata was designed by Jon Jagger and is available in his Cyber-Dojo. See [his blog post](http://jonjagger.blogspot.co.uk/2012/05/yahtzee-cyber-dojo-refactoring-in-java.html)
 
