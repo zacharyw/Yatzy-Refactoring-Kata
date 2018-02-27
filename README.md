@@ -18,19 +18,20 @@ work on the weekend or work overtime, that's not a good work life balance :)
 
 As a Yatzy player I sometimes lose / forget to bring all of my dice. I would like to be able
 to play Yatzy even if I only have 4 dice.
-
-__Given__: 4 or 5 dice and a desire to play Yatzy
-__When__: Playing and calculating scoring
-__Then__: I should be able to play a game
+```
+Given: 4 or 5 dice and a desire to play Yatzy
+When: Playing and calculating scoring
+Then: I should be able to play a game
   and have the scores calculated properly
   for the number of dice i'm using
-
-__Given__: a dice count <4 or >5 
+```
+```
+Given: a dice count <4 or >5 
   and a desire to play Yatzy
-__When__: Playing and calculating scoring
-__Then__: I should NOT be able to play a game
+When: Playing and calculating scoring
+Then: I should NOT be able to play a game
   and have the scores calculated properly
-
+```
 
 # Yatzy Refactoring Kata
 
