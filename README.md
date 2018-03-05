@@ -1,6 +1,6 @@
 ﻿# Background
 Imagine you are an engineer tasked with extending 
-the behavior of the existing Yatzy game to occomodate 
+the behavior of the existing Yatzy game to accommodate 
 users who might lose or forget all 5 required dice.
 
 Playing the feature story defined below, given the existing
