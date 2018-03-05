@@ -10,17 +10,7 @@ class Yatzy
   end
 
   def yatzy
-    counts = [0] * (dice.length + 1)
-
-    for die in dice do
-      counts[die-1] += 1
-    end
-
-    for i in 0..counts.size do
-      if counts[i] == 5
-        return 50
-      end
-    end
+    return 50 if dice.uniq.length == 1
 
     0
   end
