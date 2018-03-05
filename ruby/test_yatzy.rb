@@ -69,9 +69,10 @@ class YatzyTest < Test::Unit::TestCase
   end
 
   def test_four_of_a_knd
-    assert_equal 12, Yatzy.four_of_a_kind(3, 3, 3, 3, 5)
-    assert_equal 20, Yatzy.four_of_a_kind(5, 5, 5, 4, 5)
-    assert_equal 12, Yatzy.four_of_a_kind(3, 3, 3, 3, 3)
+    assert_equal 12, Yatzy.new(3, 3, 3, 3, 5).four_of_a_kind
+    assert_equal 20, Yatzy.new(5, 5, 5, 4, 5).four_of_a_kind
+    assert_equal 12, Yatzy.new(3, 3, 3, 3, 3).four_of_a_kind
+    assert_equal 0, Yatzy.new(3, 3, 3, 2, 2).four_of_a_kind
   end
 
   def test_small_straight

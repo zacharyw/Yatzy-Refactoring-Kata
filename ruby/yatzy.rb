@@ -47,23 +47,6 @@ class Yatzy
     find_pairs(2).max(2).map { |die| die * 2 }.sum
   end
 
-  def self.four_of_a_kind( _1,  _2,  d3,  d4,  d5)
-    tallies = [0]*6
-    tallies[_1-1] += 1
-    tallies[_2-1] += 1
-    tallies[d3-1] += 1
-    tallies[d4-1] += 1
-    tallies[d5-1] += 1
-
-    for i in (0..6)
-      if tallies[i] >= 4
-        return (i+1) * 4
-      end
-    end
-
-    return 0
-  end
-
   def self.three_of_a_kind( d1,  d2,  d3,  d4,  d5)
     t = [0]*6
     t[d1-1] += 1
@@ -79,6 +62,14 @@ class Yatzy
     end
 
     0
+  end
+
+  def four_of_a_kind
+    match = matches(4).values
+
+    return 0 unless match.any?
+
+    match.first.first(4).sum
   end
 
   def self.small_straight(d1, d2, d3, d4, d5)
