@@ -3,31 +3,31 @@ require 'test/unit'
 
 class YatzyTest < Test::Unit::TestCase
   def test_chance
-    assert Yatzy.chance(2, 3, 4, 5, 1) == 15
-    assert Yatzy.chance(3, 3, 4, 5, 1) == 16
+    assert Yatzy.new(2, 3, 4, 5, 1).chance == 15
+    assert Yatzy.new(3, 3, 4, 5, 1).chance == 16
   end
 
   def test_yatzy
-    assert Yatzy.yatzy([4, 4, 4, 4, 4]) == 50
-    assert Yatzy.yatzy([6, 6, 6, 6, 6]) == 50
-    assert Yatzy.yatzy([6, 6, 6, 6, 3]) == 0
+    assert Yatzy.new(4, 4, 4, 4, 4).yatzy == 50
+    assert Yatzy.new(6, 6, 6, 6, 6).yatzy == 50
+    assert Yatzy.new(6, 6, 6, 6, 3).yatzy == 0
   end
 
   def test_ones
-    assert Yatzy.ones(1, 2, 3, 4, 5) == 1
-    assert Yatzy.ones(1, 2, 1, 4, 5) == 2
-    assert Yatzy.ones(6, 2, 2, 4, 5) == 0
-    assert Yatzy.ones(1, 2, 1, 1, 1) == 4
+    assert Yatzy.new(1, 2, 3, 4, 5).ones == 1
+    assert Yatzy.new(1, 2, 1, 4, 5).ones == 2
+    assert Yatzy.new(6, 2, 2, 4, 5).ones == 0
+    assert Yatzy.new(1, 2, 1, 1, 1).ones == 4
   end
 
   def test_twos
-    assert Yatzy.twos(1, 2, 3, 2, 6) == 4
-    assert Yatzy.twos(2, 2, 2, 2, 2) == 10
+    assert Yatzy.new(1, 2, 3, 2, 6).twos == 4
+    assert Yatzy.new(2, 2, 2, 2, 2).twos == 10
   end
 
   def test_threes
-    assert Yatzy.threes(1, 2, 3, 2, 3) == 6
-    assert Yatzy.threes(2, 3, 3, 3, 3) == 12
+    assert Yatzy.new(1, 2, 3, 2, 3).threes == 6
+    assert Yatzy.new(2, 3, 3, 3, 3).threes == 12
   end
 
   def test_fours

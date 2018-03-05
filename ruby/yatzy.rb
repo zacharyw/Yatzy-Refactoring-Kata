@@ -1,16 +1,15 @@
 class Yatzy
-  def self.chance(d1, d2, d3, d4, d5)
-    total = 0
-    total += d1
-    total += d2
-    total += d3
-    total += d4
-    total += d5
+  attr_reader :dice
 
-    total
+  def initialize(d1, d2, d3, d4, d5)
+    @dice = [d1, d2, d3, d4, d5]
   end
 
-  def self.yatzy(dice)
+  def chance
+    dice.sum
+  end
+
+  def yatzy
     counts = [0] * (dice.length + 1)
 
     for die in dice do
@@ -26,87 +25,16 @@ class Yatzy
     0
   end
 
-  def self.ones(d1, d2, d3, d4, d5)
-    sum = 0
-
-    if d1 == 1
-      sum += 1
-    end
-
-    if d2 == 1
-      sum += 1
-    end
-
-    if d3 == 1
-      sum += 1
-    end
-
-    if d4 == 1
-      sum += 1
-    end
-
-    if d5 == 1
-      sum += 1
-    end
-
-    sum
+  def ones
+    sum(1)
   end
 
-  def self.twos(d1, d2, d3, d4, d5)
-    sum = 0
-
-    if d1 == 2
-      sum += 2
-    end
-
-    if d2 == 2
-      sum += 2
-    end
-
-    if d3 == 2
-      sum += 2
-    end
-
-    if d4 == 2
-      sum += 2
-    end
-
-    if d5 == 2
-      sum += 2
-    end
-
-    sum
+  def twos
+    sum(2)
   end
 
-  def self.threes(d1, d2, d3, d4, d5)
-    s = 0
-
-    if d1 == 3
-      s += 3
-    end
-    if d2 == 3
-      s += 3
-    end
-    if d3 == 3
-      s += 3
-    end
-    if d4 == 3
-      s += 3
-    end
-    if d5 == 3
-      s += 3
-    end
-
-    s
-  end
-
-  def initialize(d1, d2, d3, d4, d5)
-    @dice = [0] * 5
-    @dice[0] = d1
-    @dice[1] = d2
-    @dice[2] = d3
-    @dice[3] = d4
-    @dice[4] = d5
+  def threes
+    sum(3)
   end
 
   def fours
@@ -121,7 +49,7 @@ class Yatzy
     sum
   end
 
-  def fives()
+  def fives
     s = 0
     i = 0
 
@@ -289,5 +217,11 @@ class Yatzy
     else
       return 0
     end
+  end
+
+  private
+
+  def sum(match)
+    dice.select { |value| value == match }.sum
   end
 end
