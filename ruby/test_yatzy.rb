@@ -83,9 +83,10 @@ class YatzyTest < Test::Unit::TestCase
   end
 
   def test_large_straight
-    assert_equal 20, Yatzy.large_straight(6, 2, 3, 4, 5)
-    assert_equal 20, Yatzy.large_straight(2, 3, 4, 5, 6)
-    assert_equal 0, Yatzy.large_straight(1, 2, 2, 4, 5)
+    assert_equal 20, Yatzy.new(6, 2, 3, 4, 5).large_straight
+    assert_equal 20, Yatzy.new(2, 3, 4, 5, 6).large_straight
+    assert_equal 0, Yatzy.new(1, 2, 2, 4, 5).large_straight
+    assert_equal 0, Yatzy.new(1, 2, 3, 4, 5).large_straight
   end
 
   def test_full_house
