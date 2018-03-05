@@ -39,27 +39,15 @@ class Yatzy
     sum(6)
   end
 
-  def self.one_pair( d1,  d2,  d3,  d4,  d5)
-    counts = [0]*6
-    counts[d1-1] += 1
-    counts[d2-1] += 1
-    counts[d3-1] += 1
-    counts[d4-1] += 1
-    counts[d5-1] += 1
+  def one_pair
+    pairs = find_pairs
 
-    at = 0
+    max = pairs.keys.max
 
-    (0...6).each do |at|
-      if counts[6-at-1] >= 2
-        return (6-at)*2
-      end
-    end
-
-
-    0
+    pairs[max].sum
   end
 
-  def self.two_pair( d1,  d2,  d3,  d4,  d5)
+  def self.two_pair(d1, d2, d3, d4, d5)
     counts = [0]*6
     counts[d1-1] += 1
     counts[d2-1] += 1
@@ -188,5 +176,19 @@ class Yatzy
 
   def sum(match)
     dice.select { |value| value == match }.sum
+  end
+
+  def find_pairs
+    matches(2)
+  end
+
+  def find_triples
+    matches(3)
+  end
+
+  def matches(threshold)
+    dice.group_by { |die| die }.select do |_, value|
+      value.size >= threshold
+    end
   end
 end
