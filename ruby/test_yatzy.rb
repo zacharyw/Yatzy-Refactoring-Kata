@@ -77,9 +77,9 @@ class YatzyTest < Test::Unit::TestCase
   end
 
   def test_small_straight
-    assert_equal 15, Yatzy.small_straight(1, 2, 3, 4, 5)
-    assert_equal 15, Yatzy.small_straight(2, 3, 4, 5, 1)
-    assert_equal 0, Yatzy.small_straight(1, 2, 2, 4, 5)
+    assert_equal 15, Yatzy.new(1, 2, 3, 4, 5).small_straight
+    assert_equal 15, Yatzy.new(2, 3, 4, 5, 1).small_straight
+    assert_equal 0, Yatzy.new(1, 2, 2, 4, 5).small_straight
   end
 
   def test_large_straight

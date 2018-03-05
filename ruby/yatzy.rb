@@ -55,19 +55,10 @@ class Yatzy
     of_a_kind(4)
   end
 
-  def self.small_straight(d1, d2, d3, d4, d5)
-    tallies = [0] * 6
-    tallies[d1-1] += 1
-    tallies[d2-1] += 1
-    tallies[d3-1] += 1
-    tallies[d4-1] += 1
-    tallies[d5-1] += 1
+  def small_straight
+    return 0 if dice.include?(6) || dice.uniq.size != dice.size
 
-    (tallies[0] == 1 and
-      tallies[1] == 1 and
-      tallies[2] == 1 and
-      tallies[3] == 1 and
-      tallies[4] == 1) ? 15 : 0
+    15
   end
 
   def self.large_straight(d1, d2, d3, d4, d5)
