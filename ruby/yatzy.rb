@@ -56,51 +56,21 @@ class Yatzy
   end
 
   def small_straight
-    return 0 if dice.include?(6) || dice.uniq.size != dice.size
+    return 15 if !dice.include?(6) && unique?
 
-    15
+    0
   end
 
   def large_straight
-    return 0 if !dice.include?(6) || dice.uniq.size != dice.size
+    return 20 if dice.include?(6) && unique?
 
-    20
+    0
   end
 
-  def self.full_house(d1, d2, d3, d4, d5)
-    tallies = []
-    _2 = false
-    i = 0
-    _2_at = 0
-    _3 = false
-    _3_at = 0
+  def full_house
+    return dice.sum if one_pair > 0 && three_of_a_kind > 0
 
-    tallies = [0]*6
-    tallies[d1-1] += 1
-    tallies[d2-1] += 1
-    tallies[d3-1] += 1
-    tallies[d4-1] += 1
-    tallies[d5-1] += 1
-
-    for i in Array 0..5
-      if tallies[i] == 2
-        _2 = true
-        _2_at = i+1
-      end
-    end
-
-    for i in Array 0..5
-      if tallies[i] == 3
-        _3 = true
-        _3_at = i+1
-      end
-    end
-
-    if _2 and _3
-      return _2_at * 2 + _3_at * 3
-    else
-      return 0
-    end
+    0
   end
 
   private
@@ -133,5 +103,9 @@ class Yatzy
     return 0 unless match.any?
 
     match.first.first(value).sum
+  end
+
+  def unique?
+    dice.uniq.size == dice.size
   end
 end

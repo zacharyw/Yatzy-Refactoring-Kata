@@ -90,7 +90,7 @@ class YatzyTest < Test::Unit::TestCase
   end
 
   def test_full_house
-    assert_equal 18, Yatzy.full_house(6, 2, 2, 2, 6)
-    assert_equal 0, Yatzy.full_house(2, 3, 4, 5, 6)
+    assert_equal 18, Yatzy.new(6, 2, 2, 2, 6).full_house
+    assert_equal 0, Yatzy.new(2, 3, 4, 5, 6).full_house
   end
 end
