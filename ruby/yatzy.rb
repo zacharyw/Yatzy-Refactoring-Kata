@@ -47,29 +47,12 @@ class Yatzy
     find_pairs(2).max(2).map { |die| die * 2 }.sum
   end
 
-  def self.three_of_a_kind( d1,  d2,  d3,  d4,  d5)
-    t = [0]*6
-    t[d1-1] += 1
-    t[d2-1] += 1
-    t[d3-1] += 1
-    t[d4-1] += 1
-    t[d5-1] += 1
-
-    for i in [0,1,2,3,4,5]
-      if t[i] >= 3
-        return (i+1) * 3
-      end
-    end
-
-    0
+  def three_of_a_kind
+    of_a_kind(3)
   end
 
   def four_of_a_kind
-    match = matches(4).values
-
-    return 0 unless match.any?
-
-    match.first.first(4).sum
+    of_a_kind(4)
   end
 
   def self.small_straight(d1, d2, d3, d4, d5)
@@ -160,5 +143,13 @@ class Yatzy
     dice.group_by { |die| die }.select do |_, value|
       value.size >= threshold
     end
+  end
+
+  def of_a_kind(value)
+    match = matches(value).values
+
+    return 0 unless match.any?
+
+    match.first.first(value).sum
   end
 end
